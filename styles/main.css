@@ -175,14 +175,6 @@ body {
   }
 }
 
-.card.hidden {
-  /* transition: 0.2s background-color; */
-  /* background-color: #121212 !important; */
-  /* background-image: url('./img/hidden.jpg') !important; */
-  /* background-size: cover;
-    background-position: center; */
-}
-
 .card::before {
   content: '';
   position: absolute;
