@@ -45,15 +45,15 @@ class CardsList {
             this.list.forEach(item => console.log(item.getElement().classList.add('hidden')))
         }, time)
     }
-    addCard(id, idCouple, element, color) {
-        this.list.push(new Card(id, idCouple, element, color));
+    addCard(id, idCouple, element, background) {
+        this.list.push(new Card(id, idCouple, element, background));
         this.id++;
         this.idCouple++;
     }
     addCards() {
         for (let i = 0; i < 2; i++) {
             for (let i = 0; i < this.numCards; i++) {
-                this.addCard(this.id, this.idCouple, this.elements[i], DATA.COLORS[i]);
+                this.addCard(this.id, this.idCouple, this.elements[i], DATA.BG_IMAGES[i]);
             }
             this.idCouple = 0;
         }
@@ -105,9 +105,6 @@ class CardsList {
         this.list.forEach(item => item.getElement().addEventListener('click', () => handlerClick(item)));
     }
     handlerAllFound() {
-        // if (this.cardsFound >= this.numCards)
-        //     return true
-        // return false
         if (this.cardsFound >= this.numCards)
             return this.allFound = true
         return this.allFound = false
@@ -118,7 +115,8 @@ class CardsList {
             const card = document.createElement('div');
             card.classList.add('card');
             card.setAttribute('data-found', 'false')
-            card.style.backgroundColor = this.list[i].getColor();
+            // card.style.backgroundColor = this.list[i].getColor();
+            card.style.backgroundImage = this.list[i].getBg();
             gameDiv.appendChild(card);
             this.elements.push(card);
         }
@@ -126,13 +124,13 @@ class CardsList {
 }
 
 class Card {
-    constructor(id, idCouple, element, color) {
+    constructor(id, idCouple, element, background) {
         this.id = id;
         this.idCouple = idCouple;
         let _element = element;
         this.getElement = () => _element;
         this.updElement = (value) => _element = value;
-        let _color = color;
-        this.getColor = () => _color;
+        let _background = background;
+        this.getBg = () => _background;
     }
 }

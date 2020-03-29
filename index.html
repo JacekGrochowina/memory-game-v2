@@ -6,65 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="styles/progress.css">
+    <!-- <link rel="stylesheet" href="styles/progress.css"> -->
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://kit.fontawesome.com/5e965261f7.js" crossorigin="anonymous"></script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            transition: width 0.2s;
         }
 
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .container {
+        .card.hidden::before {
             width: 100%;
-            /* max-width: 900px; */
-            max-width: 1000px;
-            margin: auto;
+            background-image: url('./img/hidden.jpg') !important;
+            background-size: cover;
+            background-position: center;
         }
-
-        .game {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            flex-basis: calc((100% / 4) - 10px);
-            height: 150px;
-            margin: 5px;
-        }
-
-        .card.hidden {
-            transition: 0.2s background-color;
-            background-color: #121212 !important;
-        }
-
-        /* main template */
-        .app {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .settings-dashboard {
-            text-align: center;
-        }
-
-        .game-area {
-            flex-grow: 1;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .footer {}
     </style>
 </head>
 
@@ -74,14 +36,24 @@
 
         <div class="settings-dashboard">
             <div class="container">
-                <h1>Wybierz poziom trudności</h1>
-                <input type="radio" id="easy" name="difficulty" value="easy" checked="true">
-                <label for="easy">Łatwy</label>
-                <input type="radio" id="middle" name="difficulty" value="middle">
-                <label for="middle">Średni</label>
-                <input type="radio" id="hard" name="difficulty" value="hard">
-                <label for="hard">Trudny</label></br>
-                <button type="submit">Start</button>
+                <h1 class="title">Wybierz poziom trudności</h1>
+
+                <label for="easy">
+                    <input type="radio" id="easy" name="difficulty" value="easy" checked="true">
+                    <p class="easy">Łatwy</p>
+                </label>
+
+                <label for="middle">
+                    <input type="radio" id="middle" name="difficulty" value="middle">
+                    <p class="middle">Średni</p>
+                </label>
+
+                <label for="hard">
+                    <input type="radio" id="hard" name="difficulty" value="hard">
+                    <p class="hard">Trudny</p>
+                </label></br>
+
+                <button class="button" type="submit">Start</button>
             </div>
         </div>
 
@@ -97,7 +69,12 @@
 
         <footer class="footer">
             <div class="container">
-                Created by Jacek
+                <p>Created by Jacek Grochowina</p>
+                <ul>
+                    <li><a href="http://jacekcv.com/" target="_blank"><i class="fas fa-globe"></i>jacekcv.com</a></li>
+                    <li><a href="https://github.com/JacekGrochowina/memory-game-v2" target="_blank"><i
+                                class="fab fa-github"></i></i>github</a></li>
+                </ul>
             </div>
         </footer>
 

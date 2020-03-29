@@ -9,11 +9,13 @@ export function takeDifficulty() {
 export function disableSettings() {
     DOM.RADIO_SETTINGS.forEach(item => item.disabled = true);
     DOM.BTN_START.disabled = true;
+    DOM.SETTINGS_DASHBOARD.classList.add('disable');
 }
 
 export function enableSettings() {
     DOM.RADIO_SETTINGS.forEach(item => item.disabled = false);
     DOM.BTN_START.disabled = false;
+    DOM.SETTINGS_DASHBOARD.classList.remove('disable');
 }
 
 export function removeCards() {

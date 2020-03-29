@@ -24,20 +24,27 @@ export class Game {
 
         const interval = setInterval(() => {
             if (countdown.getTimeEnd() && !cards.cardsList.getAllFound()) {
-                this.end('Przegrałeś', interval)
+                this.end('Przegrałeś ...', 'lose', interval)
 
             }
             else if (!countdown.getTimeEnd() && cards.cardsList.getAllFound()) {
-                this.end('Wygrałeś', interval)
+                this.end('Wygrałeś !', 'win', interval)
                 countdown.clearInterval()
             }
-        }, 100)
+        }, 10)
     }
-    end = (message, interval) => {
+    end = (message, result, interval) => {
         clearInterval(interval)
         fnc.removeCards();
         fnc.removeProgressBar();
         fnc.enableSettings();
-        DOM.GAME_DIV.innerHTML = `<h1>${message}</h1>`;
+        switch (result) {
+            case 'lose':
+                DOM.GAME_DIV.innerHTML = `<h1 class="result lose">${message}</h1>`;
+                break;
+            case 'win':
+                DOM.GAME_DIV.innerHTML = `<h1 class="result win">${message}</h1>`;
+                break;
+        }
     }
 }

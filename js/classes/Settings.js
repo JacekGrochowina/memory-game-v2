@@ -20,11 +20,11 @@ export class Settings {
                 break;
             case "middle":
                 this.updNumCards(8);
-                this.updCountdown(15);
+                this.updCountdown(17);
                 break;
             case "hard":
                 this.updNumCards(10);
-                this.updCountdown(20);
+                this.updCountdown(23);
                 break;
         }
     }
