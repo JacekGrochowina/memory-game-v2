@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles/progress.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            /* max-width: 900px; */
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .game {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex-basis: calc((100% / 4) - 10px);
+            height: 150px;
+            margin: 5px;
+        }
+
+        .card.hidden {
+            transition: 0.2s background-color;
+            background-color: #121212 !important;
+        }
+
+        /* main template */
+        .app {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .settings-dashboard {
+            text-align: center;
+        }
+
+        .game-area {
+            flex-grow: 1;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer {}
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <div class="settings-dashboard">
+            <div class="container">
+                <h1>Wybierz poziom trudności</h1>
+                <input type="radio" id="easy" name="difficulty" value="easy" checked="true">
+                <label for="easy">Łatwy</label>
+                <input type="radio" id="middle" name="difficulty" value="middle">
+                <label for="middle">Średni</label>
+                <input type="radio" id="hard" name="difficulty" value="hard">
+                <label for="hard">Trudny</label></br>
+                <button type="submit">Start</button>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="container">
+                <div class="progressbar meter red hidden">
+                    <span style="width: 100%"></span>
+                </div>
+
+                <div class="game"></div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                Created by Jacek
+            </div>
+        </footer>
+
+    </div>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+
+</html>
